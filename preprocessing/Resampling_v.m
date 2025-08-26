@@ -1,0 +1,10 @@
+function SampData = Resampling_v(Indata,res)
+x = Indata(:,1);
+mnD = floor(min(x))+1;
+mxD = ceil(max(x))-1;
+% mnD = min(x);
+% mxD = max(x);
+xx = mnD:res:mxD;
+SampData(:,1) =  xx;
+y = Indata(:,2);
+SampData(:,2) = pchip(x,y,xx);
